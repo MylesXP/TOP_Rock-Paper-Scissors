@@ -1,9 +1,9 @@
 // Record and compare player input for desired player output
-let getPlayerSelection = prompt('Enter your pick:', "");
+let getPlayerSelection = prompt('Enter your choice:', "");
 let playerSelection;
 
 if (!getPlayerSelection) {
-    playerSelection = 'Please enter rock, paper or scissors'
+    playerSelection = 'Player: Please enter rock, paper or scissors'
 }  else if (getPlayerSelection.toUpperCase() === 'SCISSORS') {
     playerSelection = 'SCISSORS'
 } else if (getPlayerSelection.toUpperCase() === 'PAPER') {
@@ -12,44 +12,63 @@ if (!getPlayerSelection) {
     playerSelection = 'ROCK'
 } 
 else {
-    playerSelection = 'Please enter rock, paper or scissors'
+    playerSelection = 'Player: Please enter rock, paper or scissors'
 };
 
-console.log(playerSelection)
+console.log(playerSelection);
 
 // Create function getComputerChoice, which randomly returns rock, paper or scissors.
-let cChoice = function getComputerChoice() {
+ function getComputerChoice() {
      let randomChoice = Math.floor(Math.random() * 3);
-     let compChoice;
+     let compSelection;
+
      if (randomChoice === 0) {
-        compChoice = 'ROCK'
-        console.log(compChoice)
-        return compChoice
+        compSelection = 'ROCK';
+        console.log(compSelection);
+        return compSelection;
      } else if (randomChoice === 1) {
-        compChoice = 'PAPER'
-        console.log(compChoice)
-        return compChoice
+        compSelection = 'PAPER';
+        console.log(compSelection);
+        return compSelection;
      } else if (randomChoice === 2) {
-        compChoice = 'SCISSORS'
-        console.log(compChoice)
-        return compChoice
-        
+        compSelection = 'SCISSORS';
+        console.log(compSelection);
+        return compSelection;
      } else {
-        compChoice = "ERROR HAS OCCURED"
-        console.log(compChoice)
-        return compChoice
+        compSelection = "ERROR HAS OCCURED"
+        console.log(compSelection);
+        return compSelection;
      }
-}
+};
 
 // Create function singleRound that plays a single round of Rock, paper scissors. Should take ...
 // ... two parameters: playerSelection and computerSelection then returns a string declaring winner
 
-function singleRound(cChoice, playerSelection){
-    if (cChoice === playerSelection) {
-        console.log('Draw');
+function singleRound(playerSelection, computerSelection){
+    let roundResult;
+    if (computerSelection === playerSelection) {
+       roundResult = 'Result: Draw';
+    } else if (computerSelection === 'ROCK' && playerSelection === 'PAPER') {
+        roundResult = 'Result: Player won; PAPER beats ROCK';
+    } else if (computerSelection === 'PAPER' && playerSelection === 'ROCK') {
+        roundResult = 'Result: Computer won; PAPER beats ROCK';
+    } else if (computerSelection === 'PAPER' && playerSelection === 'SCISSORS') {
+        roundResult = 'Result: Player won; SCISSORS beats PAPER';
+    } else if (computerSelection === 'SCISSORS' && playerSelection === 'PAPER') {
+        roundResult = 'Result: Computer won; SCISSORS beats PAPER';
+    } else if (computerSelection === 'SCISSORS' && playerSelection === 'ROCK') {
+        roundResult = 'Result: Player won; ROCK beats SCISSORS';
+    } else if (computerSelection === 'ROCK' && playerSelection === 'SCISSORS') {
+        roundResult = 'Result: Computer won; ROCK beats SCISSORS';
     } else {
-        console.log('not draw')
+        roundResult = 'Result: ERROR';
     }
-}
+    console.log(roundResult);
+    return roundResult;
+};
 
-singleRound(cChoice(), playerSelection)
+singleRound(playerSelection, getComputerChoice());
+
+// Write new function called game() that calls the singleRound function inside of it to play
+// a 5 round game that keeps score and reports a winner or loser
+
