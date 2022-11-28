@@ -1,35 +1,55 @@
 // Record and compare player input for desired player output
-let playerSelection = prompt('Enter your pick:', "");
+let getPlayerSelection = prompt('Enter your pick:', "");
+let playerSelection;
 
-if (!playerSelection) {
-    console.log('Enter either rock, paper or scissors')
-}  else if (playerSelection.toUpperCase() === 'SCISSORS') {
-    console.log('scissors')
-} else if (playerSelection.toUpperCase() === 'PAPER') {
-    console.log('Paper')
-} else if (playerSelection.toUpperCase() === 'ROCK') {
-    console.log('Rock')
+if (!getPlayerSelection) {
+    playerSelection = 'Please enter rock, paper or scissors'
+}  else if (getPlayerSelection.toUpperCase() === 'SCISSORS') {
+    playerSelection = 'SCISSORS'
+} else if (getPlayerSelection.toUpperCase() === 'PAPER') {
+    playerSelection = 'PAPER'
+} else if (getPlayerSelection.toUpperCase() === 'ROCK') {
+    playerSelection = 'ROCK'
 } 
 else {
-    console.log('Please enter rock, paper or scissors')
+    playerSelection = 'Please enter rock, paper or scissors'
 };
+
+console.log(playerSelection)
+
 // Create function getComputerChoice, which randomly returns rock, paper or scissors.
-function getComputerChoice() {
+let cChoice = function getComputerChoice() {
      let randomChoice = Math.floor(Math.random() * 3);
      let compChoice;
      if (randomChoice === 0) {
-        compChoice = console.log('COMPUTER CHOSE ROCK')
+        compChoice = 'ROCK'
+        console.log(compChoice)
+        return compChoice
      } else if (randomChoice === 1) {
-        compChoice = console.log('COMPUTER CHOSE PAPER')
+        compChoice = 'PAPER'
+        console.log(compChoice)
+        return compChoice
      } else if (randomChoice === 2) {
-        compChoice = console.log('COMPUTER CHOSE SCISSORS')
+        compChoice = 'SCISSORS'
+        console.log(compChoice)
+        return compChoice
+        
      } else {
         compChoice = "ERROR HAS OCCURED"
+        console.log(compChoice)
+        return compChoice
      }
-     return compChoice
 }
-
-getComputerChoice()
 
 // Create function singleRound that plays a single round of Rock, paper scissors. Should take ...
 // ... two parameters: playerSelection and computerSelection then returns a string declaring winner
+
+function singleRound(cChoice, playerSelection){
+    if (cChoice === playerSelection) {
+        console.log('Draw');
+    } else {
+        console.log('not draw')
+    }
+}
+
+singleRound(cChoice(), playerSelection)
