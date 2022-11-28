@@ -3,7 +3,7 @@ let getPlayerSelection = prompt('Enter your choice:', "");
 let playerSelection;
 
 if (!getPlayerSelection) {
-    playerSelection = 'Player: Please enter rock, paper or scissors'
+    playerSelection = 'Please enter rock, paper or scissors'
 }  else if (getPlayerSelection.toUpperCase() === 'SCISSORS') {
     playerSelection = 'SCISSORS'
 } else if (getPlayerSelection.toUpperCase() === 'PAPER') {
@@ -12,10 +12,10 @@ if (!getPlayerSelection) {
     playerSelection = 'ROCK'
 } 
 else {
-    playerSelection = 'Player: Please enter rock, paper or scissors'
+    playerSelection = 'Please enter rock, paper or scissors'
 };
 
-console.log(playerSelection);
+console.log('Player: ' + playerSelection);
 
 // Create function getComputerChoice, which randomly returns rock, paper or scissors.
  function getComputerChoice() {
@@ -24,19 +24,19 @@ console.log(playerSelection);
 
      if (randomChoice === 0) {
         compSelection = 'ROCK';
-        console.log(compSelection);
+        console.log('Computer: ' + compSelection);
         return compSelection;
      } else if (randomChoice === 1) {
         compSelection = 'PAPER';
-        console.log(compSelection);
+        console.log('Computer: ' + compSelection);
         return compSelection;
      } else if (randomChoice === 2) {
         compSelection = 'SCISSORS';
-        console.log(compSelection);
+        console.log('Computer: ' + compSelection);
         return compSelection;
      } else {
         compSelection = "ERROR HAS OCCURED"
-        console.log(compSelection);
+        console.log('Computer: ' + compSelection);
         return compSelection;
      }
 };
@@ -47,23 +47,23 @@ console.log(playerSelection);
 function singleRound(playerSelection, computerSelection){
     let roundResult;
     if (computerSelection === playerSelection) {
-       roundResult = 'Result: Draw';
+       roundResult = 'Draw';
     } else if (computerSelection === 'ROCK' && playerSelection === 'PAPER') {
-        roundResult = 'Result: Player won; PAPER beats ROCK';
+        roundResult = 'Player won; PAPER beats ROCK';
     } else if (computerSelection === 'PAPER' && playerSelection === 'ROCK') {
-        roundResult = 'Result: Computer won; PAPER beats ROCK';
+        roundResult = 'Computer won; PAPER beats ROCK';
     } else if (computerSelection === 'PAPER' && playerSelection === 'SCISSORS') {
-        roundResult = 'Result: Player won; SCISSORS beats PAPER';
+        roundResult = 'Player won; SCISSORS beats PAPER';
     } else if (computerSelection === 'SCISSORS' && playerSelection === 'PAPER') {
-        roundResult = 'Result: Computer won; SCISSORS beats PAPER';
+        roundResult = 'Computer won; SCISSORS beats PAPER';
     } else if (computerSelection === 'SCISSORS' && playerSelection === 'ROCK') {
-        roundResult = 'Result: Player won; ROCK beats SCISSORS';
+        roundResult = 'Player won; ROCK beats SCISSORS';
     } else if (computerSelection === 'ROCK' && playerSelection === 'SCISSORS') {
-        roundResult = 'Result: Computer won; ROCK beats SCISSORS';
+        roundResult = 'Computer won; ROCK beats SCISSORS';
     } else {
-        roundResult = 'Result: ERROR';
+        roundResult = 'ERROR';
     }
-    console.log(roundResult);
+    console.log('Result: ' + roundResult);
     return roundResult;
 };
 
