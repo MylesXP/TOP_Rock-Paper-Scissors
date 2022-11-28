@@ -3,6 +3,27 @@
 let compScore = 0;
 let playerScore = 0;
 
+
+// Create function to get player input
+function getPlayerInput () {
+    let playerChoice = prompt('Enter your choice:', "");
+    let playerInput;
+
+    if (!playerChoice) {
+        playerInput = 'Please enter rock, paper or scissors'
+    }  else if (playerChoice.toUpperCase() === 'SCISSORS') {
+        playerInput = 'SCISSORS'
+    } else if (playerChoice.toUpperCase() === 'PAPER') {
+        playerInput = 'PAPER'
+    } else if (playerChoice.toUpperCase() === 'ROCK') {
+        playerInput = 'ROCK'
+    }
+    else {
+        playerInput = 'Please enter rock, paper or scissors'
+    };
+    console.log('Player: ' + playerInput);
+    return playerInput
+}
 // Create function getComputerChoice, which randomly returns rock, paper or scissors.
  function getComputerChoice() {
      let randomChoice = Math.floor(Math.random() * 3);
@@ -24,7 +45,7 @@ let playerScore = 0;
         compSelection = "ERROR HAS OCCURED"
         console.log('Computer: ' + compSelection);
         return compSelection;
-     }
+     };
 };
 
 // Create function singleRound that plays a single round of Rock, paper scissors. Should take ...
@@ -61,9 +82,9 @@ function singleRound(playerSelection, computerSelection){
         console.log('Computer Score: ' + compScore)
     } else {
         roundResult = 'ERROR';
-    }
-    console.log('Match Result: ' + roundResult);
-    console.log('')
+    };
+    console.log('Round Result: ' + roundResult);
+    console.log('');
     return roundResult;
 };
 
@@ -71,25 +92,8 @@ function singleRound(playerSelection, computerSelection){
 // a 5 round game that keeps score and reports a winner or loser
 function game() {
     for (let i = 0; i < 5; i++) {
-        let getPlayerSelection = prompt('Enter your choice:', "");
-        let playerSelection;
-
-        if (!getPlayerSelection) {
-            playerSelection = 'Please enter rock, paper or scissors'
-        }  else if (getPlayerSelection.toUpperCase() === 'SCISSORS') {
-            playerSelection = 'SCISSORS'
-        } else if (getPlayerSelection.toUpperCase() === 'PAPER') {
-            playerSelection = 'PAPER'
-        } else if (getPlayerSelection.toUpperCase() === 'ROCK') {
-            playerSelection = 'ROCK'
-        } 
-        else {
-            playerSelection = 'Please enter rock, paper or scissors'
-        };
-
-        console.log('Player: ' + playerSelection);
-        singleRound(playerSelection, getComputerChoice());
-     }
+        singleRound(getPlayerInput(), getComputerChoice());
+     };
 
      if (compScore > playerScore) {
         console.log('Final Result: Computer Wins!');
@@ -99,9 +103,9 @@ function game() {
         console.log('Final Result: A Draw!');
     } else {
         console.log('Final Result: ERROR');
-    }
-}
+    };
+};
 
-console.log(game())
+console.log(game());
 
 
