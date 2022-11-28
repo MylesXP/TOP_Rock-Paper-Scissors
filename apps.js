@@ -1,22 +1,5 @@
-// Record and compare player input for desired player output
-// let getPlayerSelection = prompt('Enter your choice:', "");
-// let playerSelection;
 
-// if (!getPlayerSelection) {
-//     playerSelection = 'Please enter rock, paper or scissors'
-// }  else if (getPlayerSelection.toUpperCase() === 'SCISSORS') {
-//     playerSelection = 'SCISSORS'
-// } else if (getPlayerSelection.toUpperCase() === 'PAPER') {
-//     playerSelection = 'PAPER'
-// } else if (getPlayerSelection.toUpperCase() === 'ROCK') {
-//     playerSelection = 'ROCK'
-// } 
-// else {
-//     playerSelection = 'Please enter rock, paper or scissors'
-// };
-
-// console.log('Player: ' + playerSelection);
-
+// Declaring score variables to be used in multiple other functions
 let compScore = 0;
 let playerScore = 0;
 
@@ -84,7 +67,8 @@ function singleRound(playerSelection, computerSelection){
     return roundResult;
 };
 
-
+// Write new function called game() that calls the singleRound function inside of it to play
+// a 5 round game that keeps score and reports a winner or loser
 function game() {
     for (let i = 0; i < 5; i++) {
         let getPlayerSelection = prompt('Enter your choice:', "");
@@ -120,7 +104,4 @@ function game() {
 
 console.log(game())
 
-
-// Write new function called game() that calls the singleRound function inside of it to play
-// a 5 round game that keeps score and reports a winner or loser
 
