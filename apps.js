@@ -9,6 +9,8 @@ let choiceScissors = document.getElementById('scissors');
 let resultBox = document.getElementById('results-container');
 let resultBox_Result = document.createElement("h3");
 let resultBox_Score = document.createElement("h4");
+let resultBoxRound = document.getElementById("result-round");
+let scoreContainer = document.getElementById("score-container")
 let playerScoreCount = document.getElementById('player-score');
 let compScoreCount = document.getElementById('computer-score');
 let roundCounter = document.getElementById('round-counter');
@@ -106,8 +108,10 @@ function final () {
         roundCounter.textContent = roundCount;
         playerScoreCount.textContent = playerScore;
         compScoreCount.textContent = compScore;
-        resultTitle.textContent = 'Final Result:'
-        resultBox.removeChild(resultBox_Result)
+        resultTitle.textContent = 'Final Result:';
+        resultBox.removeChild(resultBox_Result);
+        resultBox.removeChild(resultBoxRound);
+        scoreContainer.remove();
         if (playerScore === compScore) {
             finalResult.textContent = 'Draw!'
         } else if (compScore > playerScore) {
@@ -122,7 +126,3 @@ function final () {
 
     resultBox.appendChild(finalResult);
 }
-
-
-
-
