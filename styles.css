@@ -5,6 +5,10 @@
     height: 50vh;
 }
 
+.hide {
+    display: none !important;
+}
+
 #score-container{
     display: flex;
     justify-content: space-around;

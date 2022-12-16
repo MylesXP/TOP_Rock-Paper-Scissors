@@ -16,6 +16,7 @@ let compScoreCount = document.getElementById('computer-score');
 let roundCounter = document.getElementById('round-counter');
 let resultTitle = document.getElementById('result-title');
 let finalResult = document.createElement('h2');
+let replayButton = document.getElementById('result-replay');
 let roundResult;
 
 finalResult.style.color = 'green';
@@ -36,6 +37,23 @@ choicePaper.addEventListener('click', () => {
 choiceScissors.addEventListener('click', () => {
     singleRound('SCISSORS', getComputerChoice())
 })
+
+// Replay Button Logic
+function replay () {
+    resultTitle.textContent = 'Match Result:';
+    resultBox_Result.classList.remove('hide');
+    resultBoxRound.classList.remove('hide')
+    scoreContainer.classList.remove('hide');
+    replayButton.classList.add('hide');
+    roundCount = 0;
+    roundCounter.textContent = '';
+    resultBox_Result.textContent = '';
+    finalResult.textContent = '';
+    compScore = 0;
+    compScoreCount.textContent = 0;
+    playerScore = 0;
+    playerScoreCount.textContent = 0;
+}
 
 // Create function getComputerChoice, which randomly returns rock, paper or scissors.
  function getComputerChoice() {
@@ -109,9 +127,10 @@ function final () {
         playerScoreCount.textContent = playerScore;
         compScoreCount.textContent = compScore;
         resultTitle.textContent = 'Final Result:';
-        resultBox.removeChild(resultBox_Result);
-        resultBox.removeChild(resultBoxRound);
-        scoreContainer.remove();
+        resultBox_Result.classList.add('hide');
+        resultBoxRound.classList.add('hide')
+        scoreContainer.classList.add('hide');
+        replayButton.classList.remove('hide');
         if (playerScore === compScore) {
             finalResult.textContent = 'Draw!'
         } else if (compScore > playerScore) {
@@ -123,6 +142,6 @@ function final () {
             finalResult.textContent = 'ERROR'
         }
     };
-
     resultBox.appendChild(finalResult);
+    resultBox.insertBefore( finalResult, replayButton);
 }
